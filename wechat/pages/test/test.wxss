@@ -1,0 +1,118 @@
+/* pages/test/test.wxss */
+.swiper-container {
+    height: 300rpx;
+    display: flex;
+    align-items: center;
+}
+
+page {
+    background-color: #efefef;
+}
+
+.global {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.viewmain {
+    height: 1200rpx;
+    width: 720rpx;
+    margin: 0 auto;
+    background-color: #efefef;
+    overflow: hidden;
+    /* border-radius: 50rpx;
+    box-shadow:0rpx 0rpx 20rpx #909090; */
+ 
+}
+
+
+.item {
+    height: 285rpx;
+    line-height: 300rpx;
+    text-align: center;
+    border-radius: 50rpx;
+    overflow: hidden;
+    width: 680rpx;
+    margin: 0 auto;
+    box-shadow:-4rpx 4rpx 15rpx #909090;
+    border: 1rpx solid black;
+}
+
+.img {
+    height: 285rpx;
+    line-height: 300rpx;
+    text-align: center;
+    border-radius: 50rpx;
+    overflow: hidden;
+    width: 680rpx;
+    margin: 0 auto;
+}
+
+
+.swiper-one {}
+
+swiper-item:nth-child(1) .item {
+    background-color: lightgreen;
+}
+
+swiper-item:nth-child(2) .item {
+    background-color: lightblue;
+}
+
+swiper-item:nth-child(3) .item {
+    background-color: lightpink;
+}
+
+.main-view {
+    height: 400rpx;
+    width: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.main-view-1 {
+    height: 300rpx;
+    width: 44%;
+    margin: 0 auto;
+    border-radius: 50rpx;
+    background-color: white;
+    text-align: center;
+    line-height: 300rpx;
+    overflow: hidden;
+    box-shadow:-4rpx 4rpx 15rpx #909090;
+}
+
+.todolist-0 {
+    height: 500rpx;
+    display: flex;
+    align-items: flex-end;
+}
+
+.todolist-1 {
+    height: 450rpx;
+    width: 680rpx;
+    margin: 0 auto;
+    background-color: white;
+    overflow: hidden;
+    border-radius: 50rpx;
+    box-shadow:-4rpx 4rpx 15rpx #909090;
+    /* border: 1rpx solid black; */
+    
+}
+
+.todolist-2 {
+    height: 100%;
+    width: 85%;
+    margin: 0 auto;
+}  
+
+scroll-view {
+    height: 100%;
+}
+.todolist-text {
+    font-size:50rpx;
+    
+}

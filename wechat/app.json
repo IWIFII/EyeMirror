@@ -1,0 +1,18 @@
+{
+  "pages":[
+    "pages/test/test",
+    "pages/todolist/todolist",
+    "pages/char/char",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"dark",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Weixin",
+    "navigationBarTextStyle":"black"
+  },
+
+
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

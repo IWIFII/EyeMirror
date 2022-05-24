@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "ec-canvas": "../../ec-canvas/ec-canvas"
+  },
+  "navigationBarTitleText": "Index",
+  "navigationBarBackgroundColor": "#efefef",
+  "enablePullDownRefresh": true
+  
+  
+}

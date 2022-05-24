@@ -1,0 +1,47 @@
+<!--pages/test/test.wxml-->
+<view class="global">
+
+   <view class="viewmain">
+      <view style="height: 30rpx;">
+      </view>
+      <view class="swiper-view">
+         <swiper class="swiper-container" indicator-dots indicator-color="white" autoplay interval="3000" circular>
+            <!-- 第一个 -->
+            <swiper-item class="swiper-one">
+               <image class="img" src="https://i.bmp.ovh/imgs/2022/04/15/f7be46a08ff904d5.jpg" ></image>
+            </swiper-item>
+            <!-- 第二个 -->
+            <swiper-item class="swiper-one">
+               <image class="img" src="https://s3.bmp.ovh/imgs/2022/04/15/237ec76567ccb953.png" ></image>
+            </swiper-item>
+            <!-- 第三个 -->
+            <swiper-item class="swiper-one">
+               <image class="img" src="https://s3.bmp.ovh/imgs/2022/04/15/d1342d9eb1daa24f.png"></image>
+            </swiper-item>
+         </swiper>
+      </view>
+
+      <view class="todolist-0">
+         <!-- 待办列表 -->
+         <view class="todolist-1" bindtap="jumptoTodoList">
+            <view class="todolist-2">
+               <scroll-view scroll-y="true" scroll-with-animation="true">
+                  <block wx:for="{{ content }}" wx:for-item="content" wx:for-index="index" wx:key="index" > 
+                  <view class="todolist-text">{{ index +1}} : {{ content.content }}</view>
+                  </block>
+               </scroll-view>
+            </view>
+         </view>
+      </view>
+      <!-- A B 底端框 -->
+      <view class="main-view">
+         <view class="main-view-1" bindtap="jumptoChar">
+
+         </view>
+
+         <view class="main-view-1">
+            <text>AB</text>
+         </view>
+      </view>
+   </view>
+</view>

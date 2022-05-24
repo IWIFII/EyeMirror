@@ -1,0 +1,59 @@
+/* pages/todolist/todolist.wxss */
+page {
+    background-color: #efefef;
+}
+
+.global {
+    height: 90vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+
+.viewmain {
+    height: 1200rpx;
+    width: 720rpx;
+    margin: 0 auto;
+    background-color: white;
+    overflow: hidden;
+    border-radius: 50rpx;
+    box-shadow:0rpx 0rpx 20rpx #909090;
+ 
+}
+
+/* 列表 */
+.list {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 100rpx;
+    line-height: 100rpx;
+    overflow: hidden;
+    text-align: center;
+    border-bottom: 1px solid #cccccc;
+}
+/* 列表内容 */
+.list .txt {
+    flex-grow: 1;
+    width: 100%;
+    margin-left: -150rpx;
+    background-color: #fff;
+}
+/* 删除按钮 */
+.list .del {
+    flex-grow: 0;
+    width: 150rpx;
+    color: #fff;
+    background-color: #fe3e2f;
+}
+
+.list .txt, .list .del {
+    transform: translateX(150rpx);
+    transition: all 0.4s;
+}
+.touch-move-active .txt,.touch-move-active .del {
+    -webkit-transform: translateX(0);
+    transform: translateX(0);
+}
+

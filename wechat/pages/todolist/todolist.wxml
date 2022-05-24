@@ -1,0 +1,26 @@
+<!--pages/todolist/todolist.wxml-->
+<view class="global">
+    <view class="viewmain">
+        <scroll-view scroll-y enable-back-to-top style="height:1200rpx">
+            <view>
+                <block wx:for="{{ list }}" wx:for-item="item" wx:for-index="index" wx:key="index">
+                    <view class="list {{ item.isTouchMove ? 'touch-move-active' : '' }}" bindtouchstart="touchStart" bindtouchmove="touchMove" data-index="{{ index }}">
+
+                        <view class="txt">{{ index + 1}} -- {{ item.content }}</view>
+                        <view class="del" bindtap="delList" data-index="{{ index }}"> 删除 </view>
+                    </view>
+                </block>
+            </view>
+        </scroll-view>
+
+
+    </view>
+</view>
+<button style="height: auto;width: 80%;" type="primary" class="add-0" bindtap="modalinput">添加待办</button>
+<modal hidden="{{hiddenmodalput}}" title="添加待办" 
+   			confirm-text="提交" cancel-text="取消" bindcancel="modalinput">
+     <textarea placeholder="请输入待办内容" id="add-content" adjust-position="true" value="{{ evtContent }}" bindblur="textBlur"></textarea>
+   </modal>
+
+
+
