@@ -36,6 +36,6 @@ class Distance:
         # print(distances)1·
         #关闭串口
         ser.close()
-        return int(np.median(distances)+1)
+        return int(np.median(distances)+5)
       
-#print(Distance.get_distance('/dev/ttyUSB0'))
+print(Distance.get_distance('/dev/ttyUSB0'))

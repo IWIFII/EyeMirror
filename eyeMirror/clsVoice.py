@@ -34,7 +34,7 @@ class Voice:
         return data.decode('utf-8')
     
 
-# a = Voice('/dev/ttyUSB1')
+#a = Voice('/dev/ttyUSB2')
 
 # while 1:
 #     a.read()
@@ -42,7 +42,7 @@ class Voice:
 #     time.sleep(1)
 
 #串口发送字符串
-# b = 'AA'
+# b = 'A5'
 # d=bytes.fromhex(b)
 # a.write(d)
 

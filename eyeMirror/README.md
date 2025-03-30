@@ -74,7 +74,7 @@ class Voice:
 4. bytes2str
     * 16进制to str类型，返回str
 
-语音识别另有程序
+语音识别另有程序,用的模块
 
 ### **clsTest.py**(测试视力类，重要)
 

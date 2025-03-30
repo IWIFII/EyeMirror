@@ -1,13 +1,15 @@
 from PySide2.QtWidgets import QApplication, QMainWindow, QLabel
 from PySide2.QtCore import Qt
+from PySide2.QtGui import QPixmap, QMatrix, QPainter, QFont, QFontDatabase, QFontMetrics, QTextOption
 from clsVoice import Voice
 from ui_main import Ui_Main_UI
 import datetime
 import _thread
 import time
-from clsTest import TestVision
+from clsTest import TestVision, TestVisionDemo
 from GetHitokoto import GetHitokoto
 from clsWeather import Weather
+from clsPlayVideo import playVideo
 from clsToDoList import toDoList
 from runEyeForm import eyeWindow
 from clsDistance import Distance
@@ -15,6 +17,7 @@ import keyboard
 from I2cUltrasonicRange import I2cUltrasonicRange
 from pydub import AudioSegment
 from pydub.playback import play
+import os
 
 
 class MainWindow(QMainWindow):
@@ -58,24 +61,43 @@ def updataTodolist(mainw):
         mainw.ui.label_todo.setText(toDoList.getToDoList())
         time.sleep(10)
 
+
 def updataWeather(mainw):
     while 1:
         wea = Weather()
         mainw.ui.label_weather.setText(wea.displayToUi('深圳'))
         time.sleep(600)
 
-def eventVoice(voiceReader,mainw):
+
+Display = 1
+
+
+def eyeEx():
+    #playVideo.playVideo('/mirror/pycharm_project_365/resoures/eye.mp4')
+    playVideo.showImage('/mirror/pycharm_project_365/resoures/eye.jpg')
+
+
+def eventVoice(voiceReader, mainw):  # 语音事件
     while 1:
         content = voiceReader.read()
         if content == 'vision_test':
             voiceReader.write('A0')
             time.sleep(5)
             listenkb(mainw)
+        if content == 'vision_ex':
+            # global Display
+            # if Display == 0:
+            #     os.system('vcgencmd display_power 1')
+            #     Display=1
+            # else:
+            #     os.system('vcgencmd display_power 0')
+            #     Display=0
+            _thread.start_new_thread(eyeEx(), ())
 
-def startTest(voiceReader):
-    voiceReader.write('A5')
 
-        
+# def startTest(voiceReader):
+#    voiceReader.write('A5')
+
 
 # 测试用
 def listenkb(mainw):
@@ -149,11 +171,15 @@ def listenkb(mainw):
     # eyeW.changeLetter(4.9, 0, str(eyeW.getEyeStatus()))
     # eyeW.repaint()
     # time.sleep(3)
-    voiceReader.write('A5')
+    voiceReader.write('A5')  # 播放音频
+    voiceReader.write('A0')
     time.sleep(5)
     mainw.hide()
-    test = TestVision(eyeW,voiceReader)
     # _thread.start_new_thread(startTest, (voiceReader,))
+    #test = TestVision(eyeW, voiceReader)
+    test = TestVisionDemo(eyeW, voiceReader)
+
+    # test.testM()
     left = test.test_vision()
     voiceReader.write('A6')
     time.sleep(5)
@@ -178,11 +204,13 @@ try:
     _thread.start_new_thread(update, (mainw,))
     _thread.start_new_thread(updataTodolist, (mainw,))
     _thread.start_new_thread(updataWeather, (mainw,))
-    voiceReader = Voice('/dev/ttyUSB1',1)
-    _thread.start_new_thread(eventVoice, (voiceReader,mainw,))
+    voiceReader = Voice('/dev/ttyUSB1', 1)
+    _thread.start_new_thread(eventVoice, (voiceReader, mainw,))
+    # eyeEx()
     # _thread.start_new_thread(listenkb, (mainw,))
     # song = AudioSegment.from_wav("/mirror/pycharm_project_365/resoures/prepareVisionTest.wav")
     # play(song)
+    # playVideo.playVideo('/mirror/pycharm_project_365/resoures/eye.mp4')
 except:
     print("false")
 
